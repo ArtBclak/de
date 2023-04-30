@@ -1,5 +1,5 @@
-
-import Games from "./games.js"
+import gameA from "./gameA.js"
+import gameB from "./gameB.js"
 
 const useNav = (info) => {
     const cards = document.querySelector(".cards")
@@ -13,7 +13,11 @@ const useNav = (info) => {
     
     const backChoice = document.querySelector(".back__choice")
     const backGames = document.querySelector(".back__games")
-
+    //_____Games___ 
+    const gamesObj = {
+        "a": gameA,
+        "b": gameB,
+    }
     //____Check_Storage___
     const checkStorage = () => {
         const res = JSON.parse(localStorage.getItem("choice")) || null
@@ -24,7 +28,7 @@ const useNav = (info) => {
             if (res.game) {
                 games.style.display = "flex"
                 games.querySelector("."+res.game).style.display = "flex" 
-                Games(info)
+                gamesObj[res.game](info)
             } else {
                 choice.style.display = "flex"
             }
@@ -52,10 +56,9 @@ const useNav = (info) => {
             choice.style.display = "none"
             games.style.display = "flex"
             games.querySelector("."+e.id).style.display = "flex" 
-            Games(info)
+            gamesObj[e.id](info)
         }
     })
-
     //_____back_____
     backChoice.addEventListener("click", () => {
         localStorage.removeItem("choice")

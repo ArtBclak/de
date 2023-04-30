@@ -1,5 +1,5 @@
 
-const Games = (info) => {
+const gameA = (info) => {
     info = info[window.obj.id]
     
     let num = null
@@ -13,17 +13,14 @@ const Games = (info) => {
     const aCount = document.querySelector(".count__a")
     const aStars = document.querySelectorAll(".star__a")
 
-    const getRandom = (min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
 
-    const gameA = () => {
+    const game = () => {
         for(let i = 0; i < aBtns.length; i++) {
             aBtns[i].classList.remove("btn__a--fail")
         }
         if (a.length > 0) {
             aCount.innerHTML = "Осталось выучить : " + a.length
-            num = getRandom(0, a.length)
+            num = Math.floor(Math.random() * a.length)
             fail = false
             let data = a[num]
             aP.innerHTML = data.word
@@ -42,7 +39,7 @@ const Games = (info) => {
             aCount.innerHTML = "Задание пройдено ✓"
         }
     }
-    gameA()
+    game()
             
     aPanel.addEventListener("click", e => {
         if (a.length > 0) {
@@ -52,7 +49,7 @@ const Games = (info) => {
                 info.substantive
                 if(!fail) a[num].points = a[num].points ? 1 + a[num].points : 1
                 if(a[num].points === 3) a.splice(num, 1)
-                gameA()
+                game()
             } 
             if (e.id && data.art !== e.id) {
                 e.classList.add("btn__a--fail")
@@ -62,4 +59,4 @@ const Games = (info) => {
     })
 
 }
-export default Games 
+export default gameA 

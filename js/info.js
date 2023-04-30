@@ -22,18 +22,29 @@ return [
             { art: "der", word: "Satz", trans: ["Предложение"] },
             { art: "die", word: "Übung", trans: ["Упражнение"] },
             { art: "der", word: "Fehler", trans: ["Ошибка"] },
-            { art: "die", word: "Aussprache", trans: ["Произношение"] }
+            { art: "die", word: "Aussprache", trans: ["Произношение"] },
         ],
         verb: [
-            { word: "denken", pras: "", perf: "", trans: ["думать"] }
+            { word: "denken", pras: "", perf: "", trans: ["думать"] },
         ],
-        adverb: [
-            { word: "endlich", trans: "наконец" }
-        ],
-        adjektiv: [
-            { word: "", trans: "" }
+        all: [
+            { word: "endlich", trans: "наконец" },
         ]
     }
 ]}
-
 export default Info
+
+// {
+//     title: "", 
+//     img: "" ,
+//     substantive: [
+//         { art: "", word: "", trans: [""] },
+//     ],
+//     verb: [
+//         { word: "", pras: "", perf: "", trans: [""] }
+//     ],
+//     all: [
+//         { word: "endlich", trans: "наконец" },
+//         { word: "", trans: "" }
+//     ]
+// }
