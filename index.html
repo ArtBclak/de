@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Artem Zaikin">
+
+    <meta itemprop="name" content="DE">
+    <meta itemprop="image" content="./img/logo.png" >
+    <meta itemprop="description" content="Учим Немецкий Вместе!">
+    
+    <meta property="og:url" content="./">
+    <meta property="og:image" content="./img/logo.png">
+    <meta property="og:description" content="Учим Немецкий Вместе!">
+    <meta property="og:locale" content="ru">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DE">
+    <meta name="twitter:image" content="./img/logo.png">
+    <meta name="twitter:description" content="Учим Немецкий Вместе!">
+
+    <meta name="keywords" content="учим, немецкий, вместе, de, deutsch">
+    <meta name="description" content="Учим Немецкий Вместе!">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <title>DE</title>
+</head>
+<body>
+    <header>
+        <div class="container container__header">
+            <a class="logo" href="/" title="logo">
+                <img src="./img/logo.png" alt="logo"/>
+            </a>
+        </div>
+    </header>
+
+    <section class="cards"> 
+        <div class="container container__cards">
+            <ul class="ul__cards"></ul>
+        </div>
+    </section>
+    
+    <section class="choice">
+        <div class="container container__choice">
+            <h2 class="choice__h">Тема: 0</h2>
+            <button type="button" class="back back__choice"> &larr; Назад</button>
+            <div class="btns__choice">
+                <button type="button" class="btn__choice" id="a">Артикли</button>
+                <button type="button" class="btn__choice" id="b">Произношение</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="games">
+        <button type="button" class="back back__games"> &larr; Назад</button>
+        <div class="container a">
+            <h3>Выберете Артикль без ошибок!</h3>
+            <h4 class="count__a"></h4>
+            <div class="stars__a">
+                <span class="star__a">★</span>
+                <span class="star__a">★</span>
+                <span class="star__a">★</span>
+            </div>
+            <span class="span__a"></span>
+            <p class="p__a"></p>
+            <div class="buttons__a">
+                <button 
+                    class="btn__a"
+                    type="button"
+                    title="der"
+                    alt="der"
+                    id="der"
+                >
+                    der
+                </button>
+                <button 
+                    class="btn__a"
+                    type="button"
+                    title="die"
+                    alt="die"
+                    id="die"
+                >
+                    die
+                </button>
+                <button 
+                    class="btn__a"
+                    type="button"
+                    title="das"
+                    alt="das"
+                    id="das"
+                >
+                    das
+                </button>
+            </div>
+        </div>
+        <div class="container b">
+            <h3>Произнесите правильно слово!</h3>
+        </div>
+    </section>
+
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>
