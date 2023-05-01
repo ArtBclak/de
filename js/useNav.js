@@ -13,7 +13,7 @@ const useNav = (info) => {
     
     const backChoice = document.querySelector(".back__choice")
     const backGames = document.querySelector(".back__games")
-    //_____Games___ 
+    // _____Games___ 
     const gamesObj = {
         "a": gameA,
         "b": gameB,

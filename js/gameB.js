@@ -1,4 +1,22 @@
 const gameB = (info) => {
+
+    info = info[window.obj.id]
+    let arr = [...info.substantive, ...info.verb, ...info.all]
+    const speakBtn = document.querySelector(".speak__b")
+    const repBtn = document.querySelector(".rep__b")
+    //___________________________________
+    const pB = document.querySelector(".p__b")
+    const spanB = document.querySelector(".span__b")
+    const resB = document.querySelector(".res__b")    
+    const countB = document.querySelector(".count__b")    
+    //___________________________________
+    let voiceAct = false
+    let num = null
+    let candidate = ''
+    let result = ''
+    //___________________________________
+
+
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     const recognition = new SpeechRecognition();
     recognition.lang = 'de';
@@ -18,76 +36,62 @@ const gameB = (info) => {
         u.pitch = .8
         u.rate = .8
         speechSynthesis.speak(u)
-        // u.addEventListener('start', () => btn.classList.add('start__b'))
-        // u.addEventListener('end', () => btn.classList.remove('start__b'))
+        u.addEventListener( "start", () => voiceAct = true )
+        u.addEventListener( "end", () => voiceAct = false )
     }
+
     generateVoices()
     speechSynthesis.addEventListener('voiceschanged', generateVoices)
     
     //___________________________________
-    info = info[window.obj.id]
-    let arr = [
-        ...info.substantive, ...info.verb, ...info.all
-    ]
-    const speakBtn = document.querySelector(".speak__b")
-    const repBtn = document.querySelector(".rep__b")
-    let num = null
-
 
     const game = () => {
-        num = Math.floor(Math.random() * arr.length)
-        speak('Hallo, mein name ist Artem!')
+        if (arr.length > 0) {
+            num = Math.floor(Math.random() * arr.length)
+            candidate = ` ${arr[num].art || ''} ${arr[num].word} `
+            spanB.innerHTML = arr[num].trans
+            pB.innerHTML = candidate
+            resB.innerHTML = '_ _ _'
+            countB.innerHTML = 'Осталось отработать: '+ arr.length
+            resB.style.color = "aliceblue"
+            voiceAct = false
+
+            speak(candidate)
+        } else {
+            countB.innerHTML = 'Gut gemacht ✓'
+        }
     }
+    game()
+    //___________________________________
+    repBtn.addEventListener("click", () => {
+        if(!voiceAct) {
+           speak(candidate) 
+        } 
+    })
 
-
-    speakBtn.addEventListener('click', () => recognition.start())
+    speakBtn.addEventListener('click', () => {
+        if(!voiceAct) recognition.start()
+    })
 
     recognition.onresult = (e) => {
-        v = e.results[0][0].transcript.toLowerCase()
+        result = e.results[0][0].transcript.toLowerCase()
+        resB.innerHTML = result
     }
-    
-    const answer = ( a ) => {
-        find = true
-        let arr = Math.floor(Math.random() * (a.r.length)); 
-        speak(a.r[arr]);
-    }
-
-
-    recognition.addEventListener('end', () => {
-        console.log(v)
-        
-
-        if (v.includes('привет')) {
-            answer(hi)
-            return
-        }
-        if (v.includes('называй меня')) {
-            let txt = v.split(" ")
-            txt.splice(0, txt.findIndex(i => i == "называй меня")+3)
-            localStorage.setItem('name', txt.join(' '))
-            speak(`хорошо ${localStorage.getItem('name')}`)
-            return
-        }
-
-  
+    //_____________________________________
+    recognition.addEventListener('start', () => {
+        speakBtn.classList.add('speak__act')
     }) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    recognition.addEventListener('end', () => {
+        speakBtn.classList.remove('speak__act')
+        if (result.replace(/\s/g, "") === candidate.toLowerCase().replace(/\s/g, "")) {
+            resB.style.color = "rgb(0, 255, 0)"
+            voiceAct = true
+            arr.splice(num, 1)
+            setTimeout(game, 1000)
+        } else {
+            resB.style.color = "red"
+        }
+    }) 
 
 
 }

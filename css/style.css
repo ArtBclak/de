@@ -179,6 +179,177 @@ template {
   display: none;
 }
 
+.games {
+  display: none;
+}
+.games .container {
+  margin: 3rem 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a {
+  gap: 1rem;
+}
+.a .buttons__a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.a .count__a {
+  margin: 0;
+}
+.a .stars__a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.a .star__a {
+  color: #ccc;
+  font-size: 4rem;
+  font-weight: 900;
+}
+.a .span__a {
+  font-size: 1.8rem;
+  color: rgb(139, 139, 255);
+}
+.a .p__a {
+  font-size: 3rem;
+}
+.a .btn__a {
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  line-height: 4rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.1s;
+  width: 6rem;
+  background: none;
+}
+.a .btn__a:active {
+  transform: translate(0.1rem, 0.1rem);
+}
+.a #der {
+  background: rgb(60, 60, 255);
+}
+.a #die {
+  background: rgb(255, 60, 60);
+}
+.a #das {
+  background: rgb(60, 200, 60);
+}
+.a .btn__a--fail {
+  box-shadow: 0 0 1rem red;
+}
+
+.b {
+  gap: 2rem;
+}
+.b .count__b {
+  margin: 0;
+}
+.b .span__b {
+  font-size: 1.8rem;
+  color: rgb(139, 139, 255);
+  margin: 0;
+}
+.b .p__b {
+  margin: 0;
+  font-size: 2.2rem;
+}
+.b .res__b {
+  margin: 0;
+  font-size: 2.4rem;
+}
+.b .rep__b {
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  line-height: 4rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.1s;
+  padding: 0 1.5rem;
+  background: #ff7b00;
+}
+.b .rep__b:active {
+  transform: translate(0.1rem, 0.1rem);
+}
+.b .speak__b {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dbdbdb;
+  border: none;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 50%;
+  box-shadow: 0.2rem 0.2rem 0.9rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.b .speak__b:active {
+  padding: 0.2rem;
+  width: 7rem;
+  height: 7rem;
+  box-shadow: 0.2rem 0.2rem 0.3rem rgba(0, 0, 0, 0.5);
+}
+.b .micro__b {
+  width: 3rem;
+  height: 3rem;
+  fill: #353535;
+}
+
+.speak__act {
+  width: -moz-max-content;
+  width: max-content;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 50%;
+}
+.speak__act:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+}
+.speak__act:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -0.2rem;
+  left: -0.2rem;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(0.5rem);
+  width: calc(100% + 0.4rem);
+  height: calc(100% + 0.4rem);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 h1, h2, h3, h4, h5, h6 {
   text-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -365,73 +536,6 @@ header .container__header {
   font-size: 1.7rem;
   line-height: 4.2rem;
   box-shadow: 0.4rem 0.4rem 0.7rem rgba(0, 0, 0, 0.4);
-}
-
-.games {
-  display: none;
-}
-.games .container {
-  margin: 5rem 0;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
-
-.a {
-  gap: 1rem;
-}
-.a .buttons__a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-.a .count__a {
-  margin: 0;
-}
-.a .stars__a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-.a .star__a {
-  color: #ccc;
-  font-size: 4rem;
-  font-weight: 900;
-}
-.a .span__a {
-  font-size: 1.8rem;
-  color: rgb(139, 139, 255);
-}
-.a .p__a {
-  font-size: 3rem;
-}
-.a .btn__a {
-  border-radius: 0.5rem;
-  font-size: 1.6rem;
-  line-height: 4rem;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.1s;
-  width: 6rem;
-  background: none;
-}
-.a .btn__a:active {
-  transform: translate(0.1rem, 0.1rem);
-}
-.a #der {
-  background: rgb(60, 60, 255);
-}
-.a #die {
-  background: rgb(255, 60, 60);
-}
-.a #das {
-  background: rgb(60, 200, 60);
-}
-.a .btn__a--fail {
-  box-shadow: 0 0 1rem red;
 }
 
 @media screen and (min-width: 1200px) {

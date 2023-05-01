@@ -6,4 +6,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const info = Info().reverse()
     Cards(info)
     useNav(info)
+
 })
